@@ -23,7 +23,6 @@
     "lint-staged": "^11.2.3",
     "react-scripts": "4.0.3",
     "rome": "^10.0.1",
-    "standard-version": "^9.3.2",
     "typescript": "^4.1.2"
   },
   "scripts": {
@@ -33,7 +32,6 @@
     "eject": "react-scripts eject",
     "format": "rome format . --write",
     "lint": "rome check --apply-suggested .",
-    "release": "DISABLE_CZ=true standard-version",
     "check-types": "tsc"
   },
   "browserslist": {
@@ -51,7 +49,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "prepare-commit-msg": "[[ -z ${DISABLE_CZ} ]] && exec < /dev/tty && git cz --hook || true"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "lint-staged": {
