@@ -1,28 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { RenderCount } from "./RenderCount";
 import { useThemeContextSelector, useThemeUpdater } from "./theme";
 
 const generateRandomColor = () =>
 	Math.floor(Math.random() * 16777215).toString(16);
-
-const ReRendered = () => {
-	const count = useRef(0);
-	const ref = useRef<HTMLSpanElement | null>(null);
-
-	useEffect(() => {
-		if (ref.current) {
-			count.current = count.current + 1;
-			ref.current.innerText = String(count.current);
-		}
-	});
-
-	return (
-		<div>
-			<p>
-				Rerenders count: <span ref={ref}>{count.current}</span>
-			</p>
-		</div>
-	);
-};
 
 const ColoredViaTheme = () => {
 	const color: string = useThemeContextSelector((state) => {
@@ -36,7 +16,7 @@ const ColoredViaTheme = () => {
 			}}
 		>
 			My color is set via theme
-			<ReRendered />
+			<RenderCount />
 		</h2>
 	);
 };
@@ -53,7 +33,7 @@ const BackgroundViaTheme = () => {
 			}}
 		>
 			My background is set via theme
-			<ReRendered />
+			<RenderCount />
 		</h2>
 	);
 };
