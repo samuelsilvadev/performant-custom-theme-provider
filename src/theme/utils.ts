@@ -1,6 +1,5 @@
-import { Dispatch } from "react";
 import { useContextSelector } from "use-context-selector";
-import { Theme, ThemeContext, ThemeContextValue } from "./ThemeProvider";
+import { ThemeContext, ThemeContextValue } from "./ThemeProvider";
 
 export const useThemeContextSelector = (
 	selector: (value: ThemeContextValue | null) => any,

@@ -4,6 +4,7 @@ import { createContext } from "use-context-selector";
 export type Theme = {
 	color: string;
 	background: string;
+	headerBackground: string;
 };
 
 export type ThemeContextValue = [Theme, Dispatch<SetStateAction<Theme>>];
@@ -14,6 +15,7 @@ export const ThemeProvider: FC = (props) => {
 	const theme = useState({
 		color: "red",
 		background: "pink",
+		headerBackground: "blueviolet",
 	});
 
 	return (
