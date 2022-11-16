@@ -63,19 +63,41 @@ const Header = () => {
 	}, [updateTheme]);
 
 	return (
-		<header
-			style={{
-				position: "sticky",
-				top: "0",
-				background,
-				textAlign: "center",
-				fontSize: "32px",
-				padding: "20px 0",
-			}}
-		>
-			Header that constantly updates its color 🤷‍♀️
-			<RenderCount />
-		</header>
+		<>
+			<header
+				style={{
+					position: "sticky",
+					top: "0",
+					background,
+					textAlign: "center",
+					fontSize: "32px",
+					padding: "20px 0",
+				}}
+			>
+				Header that constantly updates its color 🤷‍♀️
+				<RenderCount />
+			</header>
+			<button
+				style={{
+					position: "fixed",
+					bottom: "100px",
+					right: "100px",
+					background,
+					border: "6px dotted black",
+					fontSize: "24px",
+					padding: "10px",
+				}}
+				type="button"
+				onClick={() => {
+					updateTheme?.((oldTheme) => ({
+						...oldTheme,
+						headerBackground: `#${generateRandomColor()}`,
+					}));
+				}}
+			>
+				Update Header
+			</button>
+		</>
 	);
 };
 
