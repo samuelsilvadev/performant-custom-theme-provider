@@ -7,7 +7,7 @@ const generateRandomColor = () =>
 	Math.floor(Math.random() * 16777215).toString(16);
 
 const ColoredViaTheme = () => {
-	const color: string = useThemeContextSelector((state) => {
+	const color = useThemeContextSelector((state) => {
 		return state?.[0].color ?? "";
 	});
 
@@ -41,7 +41,7 @@ const BackgroundViaTheme = () => {
 };
 
 const Header = () => {
-	const background: string = useThemeContextSelector((state) => {
+	const background = useThemeContextSelector((state) => {
 		return state?.[0].headerBackground ?? "";
 	});
 

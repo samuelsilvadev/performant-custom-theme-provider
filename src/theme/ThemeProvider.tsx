@@ -5,6 +5,7 @@ export type Theme = {
 	color: string;
 	background: string;
 	headerBackground: string;
+	zIndex?: number;
 };
 
 export type ThemeContextValue = [Theme, Dispatch<SetStateAction<Theme>>];
